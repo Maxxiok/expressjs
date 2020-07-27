@@ -5,6 +5,8 @@ const location = require('./utils/location');
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 app.use(express.static(path.join(__dirname,'../public')));
 
 app.set('view engine', 'hbs');
@@ -85,6 +87,6 @@ app.get('*', (req, resp)=> {
     });
 });
 
-app.listen(3000, ()=>{
-    //console.log('Started on port 3000');
+app.listen(port, ()=>{
+    console.log('Started on port '+port);
 });
